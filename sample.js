@@ -16,6 +16,14 @@ new Vue({
       new_id = this.students.slice(-1)[0].id + 1
       new_student = {id: new_id, name: this.name, course: this.course, acceptancePeriod: this.acceptancePeriod }
       this.students.push(new_student)
-    }
+
+      this.dataReset()
+    },
+
+    dataReset() {
+      this.name = null,
+      this.course = null,
+      this.acceptancePeriod = null
+     }
   }
 })
