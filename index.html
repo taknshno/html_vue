@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="sample.css" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      名前：<input v-model="name" /> コース：<input v-model="course" />
+      受講期：<input v-model="acceptancePeriod" />
+      <br />
+      <button v-on:click="addStudent">入力した生徒を追加する</button>
+
+      <ul>
+        <li v-for="student in students" v-bind:key="student.id">
+          ID {{student.id}} / 名前 {{student.name}} / コース {{student.course}}
+          / 受講期 {{student.acceptancePeriod}}
+        </li>
+      </ul>
+    </div>
+
+    <script src="sample.js"></script>
+  </body>
+</html>
