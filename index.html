@@ -6,8 +6,9 @@
   </head>
   <body>
     <div id="app">
-      名前：<input v-model="name" /> コース：<input v-model="course" />
-      受講期：<input v-model="acceptancePeriod" />
+      名前：<input v-model="name" ref="userValid" required />
+      コース：<input v-model="course" ref="courseValid" required />
+      受講期：<input v-model="acceptancePeriod" ref="periodValid" required />
       <br />
       <button v-on:click="addStudent">入力した生徒を追加する</button>
 

@@ -13,17 +13,25 @@ new Vue({
   },
   methods: {
     addStudent: function() {
-      new_id = this.students.slice(-1)[0].id + 1
-      new_student = {id: new_id, name: this.name, course: this.course, acceptancePeriod: this.acceptancePeriod }
-      this.students.push(new_student)
+      if (this.dataValid()){
+        new_id = this.students.slice(-1)[0].id + 1;
+        new_student = {id: new_id, name: this.name, course: this.course, acceptancePeriod: this.acceptancePeriod }
+        this.students.push(new_student);
 
-      this.dataReset()
+        this.dataReset();
+      }
     },
 
     dataReset() {
       this.name = null,
       this.course = null,
       this.acceptancePeriod = null
+     },
+
+     dataValid() {
+      if (this.$refs.userValid.reportValidity()
+        && this.$refs.courseValid.reportValidity()
+        && this.$refs.periodValid.reportValidity()) return true;
      }
   }
 })
